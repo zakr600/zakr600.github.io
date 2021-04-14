@@ -1,0 +1,135 @@
+
+:root {
+    --color-text-dark: #000;
+    --color-text-light: #fff;
+    --primary-color: #ff0033;
+    --focus-color: #ffff33;
+    --special-background-color: #f4f5f6;
+}
+
+button {
+    background-color: var(--color-text-light);
+    border: .1rem solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: .4rem;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: calc(100% - 0.6rem);
+    height: calc(100% - 0.6rem);
+    margin: 0.3rem;
+    outline: none;
+}
+
+button:hover,
+button:active {
+    background-color: var(--primary-color);
+    color: var(--color-text-light);
+}
+
+button:focus,
+button:active {
+    box-shadow: 0 0 0 0.2rem var(--focus-color);
+}
+
+.nav-container {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-element {
+    list-style: none;
+    margin: 0 1rem 0 1rem;
+    padding: 0.4rem 1rem;
+}
+
+.nav-element a,
+.nav-element a:active,
+.nav-element a:hover,
+.nav-element a:focus {
+    color: unset;
+    text-decoration: unset;
+}
+
+.nav-element.active {
+    background-color: var(--primary-color);
+    color: var(--color-text-light);
+    border-radius: 1rem;
+}
+#logo{
+    max-height: 100%;
+}
+/*CSS for layout*/
+#root {
+    display: grid;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+#root {
+    grid-template-areas: "head"
+    "nav"
+    "main"
+    "foot";
+    grid-template-columns: auto;
+    grid-template-rows: 7rem 5rem auto 7rem;
+}
+
+
+#header {
+    grid-area: head;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+
+#main {
+    grid-area: main;
+    overflow-y: scroll;
+}
+
+#navigation {
+    grid-area: nav;
+    margin-top: 1rem;
+}
+
+#footer {
+    grid-area: foot;
+    background-color: #d7d6d6;
+    padding: 1rem;
+}
+
+#menu-button-mobile-screen-only {
+    grid-area: toogle;
+    display: none;
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    #root {
+        grid-template-areas: "head toogle"
+        "nav nav"
+        "main main"
+        "foot foot";
+        grid-template-columns: auto 5rem;
+        grid-template-rows: 5rem auto auto 5rem;
+    }
+
+    #navigation {
+        display: none;
+    }
+
+    #menu-button-mobile-screen-only {
+        display: block;
+    }
+    .nav-container{
+        flex-direction: column;
+    }
+
+
+}
