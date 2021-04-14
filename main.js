@@ -1,5 +1,6 @@
 function redrawContent() {
     let md_url = window.location.pathname.replace(".html", "") + ".md";
+    md_url = md_url.replace("/.md", "/main.md");
     let xhr = new XMLHttpRequest();
     xhr.open("GET", md_url, false);
     xhr.send();
@@ -38,8 +39,8 @@ function redrawNav() {
 
 function addAnchors() {
     for (let i = 1; i < 10; i++) {
-        for(let e of document.getElementsByTagName("h"+i)){
-            e.innerHTML+=` <a href="#${e.id}">#</a>`
+        for (let e of document.getElementsByTagName("h" + i)) {
+            e.innerHTML += ` <a href="#${e.id}">#</a>`
             console.log(e);
         }
     }
@@ -61,6 +62,7 @@ function resetListeners() {
         }
     }
 }
+
 redrawNav();
 redrawContent();
 resetListeners();
